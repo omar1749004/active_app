@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">1144463959922702</string>
+    <string name="fb_login_protocol_scheme">fb1144463959922702</string>
+    <string name="facebook_client_token">b794f601b4a2e18f8629a4bb7377854a</string>
+    <string name="app_name">active gym</string>
+</resources>
