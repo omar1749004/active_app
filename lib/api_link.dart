@@ -60,6 +60,8 @@ const String linkWeightView = "$linkServerName/progress/view_weight.php";
  const String linkGetCaptins = "$linkServerName/client_captin_view/get_captins.php";
  const String linkGetClients = "$linkServerName/client_captin_view/get_clients.php";
 
+//edit image profile
+const String linkeditImage ="$linkServerName/edit_image.php";
 
 //paymob
   //api key

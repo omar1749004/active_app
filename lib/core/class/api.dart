@@ -97,7 +97,7 @@ class Api {
     var request = http.MultipartRequest("POST", Uri.parse(uri));
     var length = await file.length();
     var stream = http.ByteStream(file.openRead());
-    var multipartfile = http.MultipartFile("file", stream, length,
+    var multipartfile = http.MultipartFile("files", stream, length,
         filename: basename(file.path));
     request.headers.addAll(myheaders);
     request.files.add(multipartfile);
@@ -160,7 +160,7 @@ class Api {
   Future<bool> deleteImage(String fileName) async {
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/$fileName';
+      final filePath = "${directory.path}/$fileName";
 
       final file = File(filePath);
 
@@ -196,7 +196,11 @@ class Api {
        final directory = await getApplicationDocumentsDirectory();
       final filePath = '${directory.path}/$fileName';
       final file = File(filePath);
-      return file ;
+     if (await file.exists()) {
+        return file ;
+      } else {
+        return null ;
+      }
     } catch (e) {
       print('Failed to download image: $e');
     }

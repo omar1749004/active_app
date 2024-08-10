@@ -19,12 +19,11 @@ class BranchDetails extends StatelessWidget {
       appBar: const CustomForgetPassAppBar(
         text: "معلومات عن الفرع",
       ),
-      body:GetBuilder<BranchDetailsControllerImp>( builder: (controller) =>
-      Stack(
-        children: [
-          
-             ListView(
-              padding:  const EdgeInsets.symmetric(horizontal: 16) ,
+      body: GetBuilder<BranchDetailsControllerImp>(
+        builder: (controller) => Stack(
+          children: [
+            ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               children: [
                 const SizedBox(
                   height: 35,
@@ -40,8 +39,8 @@ class BranchDetails extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                 Text(
-                 controller.branchModel.branchDetailsEn,
+                Text(
+                  controller.branchModel.branchDetailsEn,
                   style: Styles.style16G2W7,
                 ),
                 const SizedBox(
@@ -62,7 +61,7 @@ class BranchDetails extends StatelessWidget {
                       style: Styles.style16G2W7,
                     ),
                     Text(
-                       controller.branchModel.branchOpenTime,
+                      controller.branchModel.branchOpenTime,
                       style: Styles.style16G2W7,
                     )
                   ],
@@ -83,47 +82,45 @@ class BranchDetails extends StatelessWidget {
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.tweeter,
                       onPressed: () {
-                        launchUrl(
-                          Uri.parse("tel:+01093465022")
-                        );
+                        launchUrl(Uri.parse("tel:+01093465022"));
                       },
                     ),
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.insta,
                       onPressed: () {
-                        Uri.parse("insat") ;
+                        Uri.parse("insat");
                       },
                     ),
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.facebook,
                       onPressed: () {
-                        Uri.parse("face") ;
+                        Uri.parse("face");
                       },
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: 110,
+                  height: 120,
                 ),
               ],
             ),
-         
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          Positioned(
-            bottom: 32,
-            left: 16,
-          right: 16,
-            child: CustomButton(
-              text: "اختر مدربك",
-              onPressed: () {
-                controller.goToTrainerSelection();
-              },
+
+            // const SizedBox(
+            //   height: 10,
+            // ),
+            Positioned(
+              bottom: 32,
+              left: 16,
+              right: 16,
+              child: CustomButton(
+                text: "اختر مدربك",
+                onPressed: () {
+                  controller.goToTrainerSelection();
+                },
+              ),
             ),
-          ),
-        ],
-         ),
+          ],
+        ),
       ),
     );
   }

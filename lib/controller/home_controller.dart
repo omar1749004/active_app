@@ -62,6 +62,9 @@ class HomeControllerImp extends HomeController {
       } else if (res["status"] == "fail") {
         globalSnakbar(title: "wring", body: "the renew is end");
         renewModel = RenewModel.fromJson(res["renews"]);
+        renewModelList.add(renewModel!);
+         services.sharedPreferences
+              .setInt("renew", renewModel?.renewalId?? -1);
         statusRequs = StatusRequest.failure;
         //statusRequest(StatusRequest.failure);
       } else {

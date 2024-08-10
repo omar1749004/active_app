@@ -35,7 +35,9 @@ class CustomImageProfile extends GetView<ProfileControllerImp> {
                     right: 4,
                     bottom: 4,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        controller.chouseOptionIMage();
+                      },
                       child: CircleAvatar(
                         radius: 20,
                         backgroundColor: ColorApp.kPrimaryColor,

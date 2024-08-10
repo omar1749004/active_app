@@ -4,7 +4,10 @@ import 'package:active_app/core/constant/styles.dart';
 import 'package:active_app/core/shared/custom_button.dart';
 import 'package:active_app/feature/auth/widget/cutom_signup_social_bottom.dart';
 import 'package:active_app/feature/fogetpassword/check_email.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
@@ -43,17 +46,40 @@ class AboutUs extends StatelessWidget {
                   style: Styles.style20BW7,
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                   const  Icon(Icons.phone,color: ColorApp.kPrimaryColor,),
                 const  SizedBox(width: 20,),
-                    Text(
-                      "+966577662779 \n+966577662779",
-                      style: Styles.style15A.copyWith(fontWeight: FontWeight.w700),
-                    ),
+                    Column(
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            launchUrl(
+                          Uri.parse("tel:+01093465022")
+                        );
+                          },
+                          child: Text(
+                            "+966577662779",
+                            style: Styles.style15A.copyWith(fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                       const  SizedBox(height: 10,),
+                        GestureDetector(
+                          onTap: (){
+                           launchUrl(
+                          Uri.parse("tel:+01093465022")
+                        );
+                          },
+                          child: Text(
+                            "+966577662779",
+                            style: Styles.style15A.copyWith(fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
+                    ),//+966577662779
                    const Spacer(),
                   ],
                 ),
@@ -81,15 +107,27 @@ class AboutUs extends StatelessWidget {
                   children: [
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.tweeter,
-                      onPressed: () {},
+                      onPressed: () {
+                        launchUrl(
+                          Uri.parse("tel:+01093465022")
+                        );
+                      },
                     ),
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.insta,
-                      onPressed: () {},
+                      onPressed: () {
+                         launchUrl(
+                          Uri.parse("tel:+01093465022")
+                        );
+                      },
                     ),
                     CustomSignupSocailBottom(
                       imageName: ImageAsset.facebook,
-                      onPressed: () {},
+                      onPressed: () {
+                         launchUrl(
+                          Uri.parse("tel:+01093465022")
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -108,7 +146,7 @@ class AboutUs extends StatelessWidget {
                   style: Styles.style16G2W7,
                 ),
                 const SizedBox(
-          height: 10,
+          height: 100,
                       ),
               ],
             ),
