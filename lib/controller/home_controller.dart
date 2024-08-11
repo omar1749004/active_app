@@ -44,7 +44,7 @@ class HomeControllerImp extends HomeController {
     update();
     if (await checkinternet()) {
       var res = await HomeData()
-          .view({"barcode": services.sharedPreferences.get("barcode")});
+          .view({"barcode": services.sharedPreferences.getString("barcode")});
       if (res["status"] == "success") {
         List data = res["renews"];
         renewModelList.addAll(data.map((e) => RenewModel.fromJson(e)));

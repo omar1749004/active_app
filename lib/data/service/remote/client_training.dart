@@ -1,13 +1,17 @@
 import 'package:active_app/api_link.dart';
 import 'package:active_app/core/class/api.dart';
 
-class ClientTraining {
-  ClientTraining();
+class ClientTrainingData {
+  ClientTrainingData();
     cliantView(Map data)async{
     var res =await Api().post(uri: linkClientView, body: data);
     return res;
   }
-    
+     weekCliantView(Map data)async{
+    var res =await Api().post(uri: linkWeekClientView, body: data);
+    return res;
+  }
+
      captinView(Map data)async{
     var res =await Api().post(uri: linkClientCaptinView, body: data);
     return res;

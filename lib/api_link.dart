@@ -34,6 +34,7 @@ const String linkAccountRalated = "$linkServerName/verfy_client/account_ralated.
 
 //client_training
 const String linkClientView = "$linkServerName/client_training/cliant_view.php";
+const String linkWeekClientView = "$linkServerName/client_training/week_client_view.php";
 const String linkDetailsView = "$linkServerName/client_training/details_view.php";
    //captin
    const String linkClientCaptinView = "$linkServerName/client_training/captain_view.php";

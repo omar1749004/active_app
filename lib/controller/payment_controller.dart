@@ -21,7 +21,7 @@ class PaymentControllerImp extends PaymentController {
   MyServices services = Get.find();
   @override
   void onInit() {
-    id = int.parse(services.sharedPreferences.get("id").toString());
+    id = int.parse(services.sharedPreferences.getString("id").toString());
     subModel = Get.arguments["subModel"];
     start = Get.arguments["start"];
     end =Get.arguments["end"] ;
