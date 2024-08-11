@@ -21,6 +21,7 @@ class CustomAppBar extends GetView<HomeScreenControllerImp>
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20), // Adjust the radius as needed

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/home_screen_controller.dart';
 
-class CustomBottomAppBar extends GetView<HomeScreenControllerImp> {
+class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar(this.isclient, {super.key});
 final bool isclient  ;
   @override
@@ -17,7 +17,9 @@ final bool isclient  ;
 
       notchMargin: 12,
 
-      child: Row(
+      child:
+      GetBuilder<HomeScreenControllerImp>(builder: (controller) => 
+       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ...List.generate(
@@ -55,7 +57,7 @@ final bool isclient  ;
             },
           ),
         ],
-      ),
+      ),)
     );
   }
 }

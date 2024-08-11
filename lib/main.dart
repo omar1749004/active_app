@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:active_app/routs.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await intialService();
@@ -25,7 +25,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: routs,
       title: 'Flutter Demo',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       theme: controller.apptheme,
+       supportedLocales: const [
+        Locale('en', ''), // English
+        Locale('ar', 'SA'), // Arabic
+      ],
       builder: EasyLoading.init(),
     );
   }

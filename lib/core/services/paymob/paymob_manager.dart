@@ -6,7 +6,7 @@ import '../../class/api.dart';
 class PaymobManger {
   final String _uri = "https://accept.paymob.com/api";
   Future<String> getPaymentkeyFristThreeStep(
-      int amount, String currency, String subName) async {
+      double amount, String currency, String subName, Map data) async {
     try {
       //frist step
       String authToken = await _getAuthToken();
@@ -16,7 +16,8 @@ class PaymobManger {
           authToken: authToken,
           cents: (amount * 100).toString(),
           currency: currency,
-          amount: amount,
+          //amount: amount,
+          data: data,
           subNme: subName
           );
 
@@ -46,7 +47,8 @@ class PaymobManger {
       required String cents,
       required String currency,
       required String subNme,
-      required int amount
+      required Map data
+    //  required int amount
       }) async {
     var res = await Api().postJsonType(uri: "$_uri/ecommerce/orders", headers: {
       'Content-Type': 'application/json'
@@ -58,13 +60,13 @@ class PaymobManger {
       "items": [
         {
       "name": subNme,
-      "amount": amount,
+      "amount_cents": cents,
       "description": "Subscription",
-      "quantity": 1
+      "quantity": "1"
     }
-      ] //item details
+      ] ,//item details
+      "data":data
     });
-
     return res["id"];
   }
 
@@ -103,18 +105,17 @@ class PaymobManger {
         "country": "Na",
         "state": "Na"
       },
-      "metadata": {
-        "user_id": "userId",
-        "project_id": "projectId"
-      }
+      
     });
+
+    
     return res["token"];
   }
 
   ////card
   Future<void> payCard(String paymentKey) async {
     launchUrl(Uri.parse(
-        "https://accept.paymob.com/api/acceptance/iframes/798983?payment_token=$paymentKey"));
+        "https://accept.paymob.com/api/acceptance/iframes/798984?payment_token=$paymentKey"));
   }
 
 // Mobile Wallets
@@ -122,13 +123,13 @@ class PaymobManger {
     launchUrl(Uri.parse(url));
   }
 
-  Future<String> mobileWallets({required authToken}) async {
+  Future<String> mobileWallets({required String paymentKey,required String phone}) async {
     var res = await Api()
         .postJsonType(uri: "$_uri/acceptance/payments/pay", headers: {
       'Content-Type': 'application/json'
     }, body: {
-      "source": {"identifier": "01010101010", "subtype": "WALLET"},
-      "payment_token": authToken
+      "source": {"identifier": phone, "subtype": "WALLET"},
+      "payment_token": paymentKey
     });
 
     return res["redirect_url"];

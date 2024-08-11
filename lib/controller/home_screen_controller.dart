@@ -81,7 +81,6 @@ class HomeScreenControllerImp extends HomeScreenController {
   @override
   changePage(int i) {
     currentPage = i;
-
     update();
   }
 
